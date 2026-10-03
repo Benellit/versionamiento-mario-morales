@@ -1,44 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Data Table with LocalStorage</title>
-
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inventario personal de Benellit: registra, busca y administra tus productos.">
+<title>Benellit · Inventario</title><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Example Product List Web App</h1>
-
-    <div class="container">
-
-        <div class="formContainer">
-            <label for="name">Product Name:</label>
-            <input type="text" id="name" placeholder="Enter product name">
-            
-            <label for="price">Price:</label>
-            <input type="number" id="price" placeholder="Enter product price" min="1">
-            
-            <button id="addProduct">Add Product</button>
-        </div>
-
-      
-        <table id="productsTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-          
-            </tbody>
-        </table>
-    </div>
-
-
-    <script src="functions.js"></script>
-</body>
-</html>
+<header class="topbar"><a class="brand" href="./"><span class="brand-icon" aria-hidden="true">B.</span> Benellit <span class="brand-sub">/ Inventario</span></a><span class="storage-badge">● Almacenamiento local</span></header>
+<main>
+<section class="intro"><p class="eyebrow">TU ESPACIO DE TRABAJO</p><h1>Todo en su lugar.</h1><p>Un inventario sencillo para llevar el control de tus productos.</p><span class="author">Personalizado por <strong>Benellit</strong></span></section>
+<section class="summary" aria-label="Resumen del inventario">
+<article><span>Productos registrados</span><strong id="productCount">0</strong><small>En tu inventario</small></article>
+<article><span>Valor total</span><strong id="totalValue">$0.00</strong><small>Suma de precios registrados</small></article>
+<article class="summary-tip"><span class="tip-icon" aria-hidden="true">↗</span><div><h2>Pequeños detalles, más orden.</h2><p>Agrega tus productos y encuéntralos al instante.</p></div></article>
+</section>
+<div class="container">
+<section class="formContainer" aria-labelledby="formTitle"><p class="eyebrow">01 / REGISTRO</p><h2 id="formTitle">Nuevo producto</h2><p class="section-description">Añade los detalles a tu inventario.</p>
+<form id="productForm"><label for="name">Nombre del producto</label><input type="text" id="name" placeholder="Ej. Audífonos inalámbricos" maxlength="100" required>
+<label for="price">Precio ($)</label><input type="number" id="price" placeholder="0.00" min="0.01" step="0.01" required>
+<button id="addProduct" type="submit">+ Agregar producto</button></form>
+<p id="statusMessage" class="status" role="status" aria-live="polite"></p><p class="local-note">Tus datos se guardan en este navegador y dispositivo.</p></section>
+<section class="list-panel" aria-labelledby="listTitle"><div class="list-header"><div><p class="eyebrow">02 / INVENTARIO</p><h2 id="listTitle">Tus productos</h2></div><span id="resultCount" class="count-badge">0 productos</span></div>
+<label class="search-label" for="search">Buscar producto</label><input type="search" id="search" placeholder="Buscar por nombre…">
+<div class="table-scroll"><table id="productsTable"><thead><tr><th scope="col">ID</th><th scope="col">Producto</th><th scope="col">Precio</th><th scope="col">Acciones</th></tr></thead><tbody></tbody></table></div>
+<div id="emptyState" class="empty-state"><span aria-hidden="true">◇</span><h3>Tu inventario empieza aquí</h3><p>Agrega tu primer producto con el formulario.</p></div></section>
+</div></main>
+<footer><span>Benellit · Inventario personal</span><span>HTML + CSS + JavaScript</span></footer>
+<script src="functions.js"></script>
+</body></html>
